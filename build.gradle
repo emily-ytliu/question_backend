@@ -24,6 +24,10 @@ dependencies {
 	
 	//MySQL connector
 	implementation 'mysql:mysql-connector-java:8.0.31'
+	
+	//¨Ï¥Î Gson
+	implementation 'com.google.code.gson:gson:2.10.1'
+	
 }
 
 tasks.named('test') {
