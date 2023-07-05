@@ -1,5 +1,6 @@
 package com.example.question_backend.vo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.example.question_backend.entity.Answer;
@@ -10,6 +11,8 @@ public class BackResponse {
 	
 	private List<Outline> outlineList;
 	
+	private List<Question> questionList;
+	
 	private Outline outline;
 	
 	private Question question;
@@ -17,12 +20,22 @@ public class BackResponse {
 	private Answer answer;
 	
 	private String message;
-
+	
+	private LocalDate startDate;
+	
+	private LocalDate endDate;
+	
 	public BackResponse() {
 	}
 
 	public BackResponse(List<Outline> outlineList, String message) {
 		this.outlineList = outlineList;
+		this.message = message;
+	}
+
+	public BackResponse(Outline outline, Question question, String message) {
+		this.outline = outline;
+		this.question = question;
 		this.message = message;
 	}
 
@@ -52,12 +65,25 @@ public class BackResponse {
 		this.message = message;
 	}
 
+	public BackResponse(LocalDate startDate, LocalDate endDate) {
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
 	public List<Outline> getOutlineList() {
 		return outlineList;
 	}
 
 	public void setOutlineList(List<Outline> outlineList) {
 		this.outlineList = outlineList;
+	}
+
+	public List<Question> getQuestionList() {
+		return questionList;
+	}
+
+	public void setQuestionList(List<Question> questionList) {
+		this.questionList = questionList;
 	}
 
 	public Outline getOutline() {
@@ -90,6 +116,22 @@ public class BackResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 	
 }

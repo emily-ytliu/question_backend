@@ -3,6 +3,9 @@ package com.example.question_backend.vo;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+
+import com.example.question_backend.entity.Outline;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OutlineRequest {

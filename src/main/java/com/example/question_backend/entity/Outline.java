@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 public class Outline {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "outline_id")
 	private int outlineId;
 	
@@ -21,21 +24,15 @@ public class Outline {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "status")
-	private String status;
-	
 	@Column(name = "start_date")
 	private LocalDate startDate;
 	
 	@Column(name = "end_date")
 	private LocalDate endDate;
 	
-	@Column(name = "question_id")
-	private String questionId;
-	
 	@Column(name = "answer_id")
 	private String answerId;
-
+	
 	public Outline() {
 	}
 
@@ -63,14 +60,6 @@ public class Outline {
 		this.description = description;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public LocalDate getStartDate() {
 		return startDate;
 	}
@@ -86,15 +75,7 @@ public class Outline {
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
-
-	public String getQuestionId() {
-		return questionId;
-	}
-
-	public void setQuestionId(String questionId) {
-		this.questionId = questionId;
-	}
-
+	
 	public String getAnswerId() {
 		return answerId;
 	}
@@ -102,5 +83,5 @@ public class Outline {
 	public void setAnswerId(String answerId) {
 		this.answerId = answerId;
 	}
-	
+
 }
