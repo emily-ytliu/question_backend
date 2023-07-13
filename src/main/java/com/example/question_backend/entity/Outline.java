@@ -30,9 +30,6 @@ public class Outline {
 	@Column(name = "end_date")
 	private LocalDate endDate;
 	
-	@Column(name = "answer_id")
-	private String answerId;
-	
 	public Outline() {
 	}
 
@@ -74,14 +71,6 @@ public class Outline {
 
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
-	}
-	
-	public String getAnswerId() {
-		return answerId;
-	}
-
-	public void setAnswerId(String answerId) {
-		this.answerId = answerId;
 	}
 
 }

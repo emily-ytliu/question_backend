@@ -7,6 +7,7 @@ public enum RtnCode {
 	ADD_SUCCESS("200", "新增問卷成功"),
 	SEARCH_SUCCESS("200", "搜尋問卷成功"),
 	GET_ALL_SUCCESS("200", "取得所有問卷成功"),
+	GET_ONE_SUCCESS("200", "取得特定問卷成功"),
 	NO_SEARCH_INFO("400", "查無資料"),
 	INCORRECT_INFO_ERROR("400", "資料不正確"),
 	DATA_IS_EXISTED("400", "資料已經存在"),

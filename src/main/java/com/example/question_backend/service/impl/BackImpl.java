@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -20,6 +21,7 @@ import com.example.question_backend.repository.OutlineDao;
 import com.example.question_backend.repository.QuestionDao;
 import com.example.question_backend.service.ifs.BackService;
 import com.example.question_backend.vo.BackResponse;
+import com.example.question_backend.vo.OneDataResponse;
 import com.example.question_backend.vo.OutlineQuestionRequest;
 import com.example.question_backend.vo.OutlineQuestionResponse;
 import com.example.question_backend.vo.OutlineRequest;
@@ -164,7 +166,6 @@ public class BackImpl implements BackService{
 	    outline.setDescription(description);
 	    outline.setStartDate(localDateStart);
 	    outline.setEndDate(localDateEnd);
-	    outline.setAnswerId(null);
 	    
 	    outlineDao.save(outline);
 	    
@@ -510,8 +511,26 @@ public class BackImpl implements BackService{
 	// 查詢所有問卷大綱
 	public BackResponse getAll() {
 		List<Outline> outlineList = outlineDao.findAll();
+		if (outlineList == null) {
+			return new BackResponse(RtnCode.NO_SEARCH_INFO.getMessage());
+		}
 		
 		return new BackResponse(outlineList, RtnCode.GET_ALL_SUCCESS.getMessage());
+	}
+
+	@Override
+	// 查詢特定問卷
+	public OneDataResponse getOne(OutlineQuestionRequest outlineQuestionRequest) {
+		int outlineId = outlineQuestionRequest.getOutlineId();
+		
+		Optional<Outline> opOutline = outlineDao.findById(outlineId);
+		Optional<Question> opQuestion = questionDao.findById(outlineId);
+		if (opOutline.isEmpty() 
+				|| opQuestion.isEmpty()) {
+			return new OneDataResponse(RtnCode.NO_SEARCH_INFO.getMessage());
+		}
+		
+		return new OneDataResponse(opOutline.get(), opQuestion.get(), RtnCode.GET_ONE_SUCCESS.getMessage());
 	}
 
 

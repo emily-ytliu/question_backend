@@ -1,6 +1,7 @@
 package com.example.question_backend.service.ifs;
 
 import com.example.question_backend.vo.BackResponse;
+import com.example.question_backend.vo.OneDataResponse;
 import com.example.question_backend.vo.OutlineQuestionRequest;
 import com.example.question_backend.vo.OutlineQuestionResponse;
 import com.example.question_backend.vo.OutlineRequest;
@@ -22,5 +23,8 @@ public interface BackService {
 	
 	// 查詢所有問卷
 	public BackResponse getAll();
+	
+	// 查詢特定問卷
+	public OneDataResponse getOne(OutlineQuestionRequest outlineQuestionRequest);
 	
 }

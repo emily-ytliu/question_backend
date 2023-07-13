@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.question_backend.service.ifs.BackService;
 import com.example.question_backend.vo.BackResponse;
+import com.example.question_backend.vo.OneDataResponse;
 import com.example.question_backend.vo.OutlineQuestionRequest;
 import com.example.question_backend.vo.OutlineQuestionResponse;
 import com.example.question_backend.vo.OutlineRequest;
@@ -49,6 +50,12 @@ public class BackController {
 	@GetMapping(value = "get_all")
 	public BackResponse getAll() {
 		return backService.getAll();
+	}
+	
+	// 查詢特定問卷
+	@PostMapping(value = "get_one")
+	public OneDataResponse getOne(@RequestBody OutlineQuestionRequest outlineQuestionRequest) {
+		return backService.getOne(outlineQuestionRequest);
 	}
 	
 	

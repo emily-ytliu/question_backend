@@ -10,10 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OutlineQuestionRequest {
 
-	// Outline
-	@JsonProperty("o_id_list")
-	private List<String> oIdList;
-	
+	// Outline	
 	@JsonProperty("title")
 	private String title;
 	
@@ -37,7 +34,7 @@ public class OutlineQuestionRequest {
 	private String questionId;
 	
 	@JsonProperty("outline_id")
-	private String outlineId;
+	private int outlineId;
 	
 	@JsonProperty("question_title")
 	private String questionTitle;
@@ -62,14 +59,7 @@ public class OutlineQuestionRequest {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	public List<String> getoIdList() {
-		return oIdList;
-	}
-
-	public void setoIdList(List<String> oIdList) {
-		this.oIdList = oIdList;
-	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -119,11 +109,11 @@ public class OutlineQuestionRequest {
 		this.questionId = questionId;
 	}
 
-	public String getOutlineId() {
+	public int getOutlineId() {
 		return outlineId;
 	}
 
-	public void setOutlineId(String outlineId) {
+	public void setOutlineId(int outlineId) {
 		this.outlineId = outlineId;
 	}
 
